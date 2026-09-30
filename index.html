@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookNest - Librairie en ligne</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+                Book<span>Nest</span>
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" data-i18n="navHome">Accueil</a>
+                </li>
+
+                <li>
+                    <a href="#shop" data-i18n="navShop">Boutique</a>
+                </li>
+
+                <li>
+                    <a href="#about" data-i18n="navAbout">À propos</a>
+                </li>
+
+                <li>
+                    <a href="#contact" data-i18n="navContact">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+
+                <!-- Language selector -->
+                <select id="languageSelector" aria-label="Choisir la langue">
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="en">🇬🇧 English</option>
+                </select>
+
+                <!-- Cart -->
+                <button class="cart-button" id="cartButton">
+                    🛒
+                    <span id="cartCount">0</span>
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="hero-small-text" data-i18n="heroSmall">
+                    Bienvenue chez BookNest
+                </p>
+
+                <h1 data-i18n="heroTitle">
+                    Découvrez votre prochain livre préféré
+                </h1>
+
+                <p data-i18n="heroDescription">
+                    Explorez une collection de livres soigneusement sélectionnés
+                    pour apprendre, grandir et vous inspirer.
+                </p>
+
+                <a href="#shop" class="hero-button" data-i18n="heroButton">
+                    Découvrir les livres
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+        <section class="categories">
+
+            <div class="section-heading">
+
+                <p class="section-subtitle" data-i18n="categorySubtitle">
+                    Explorez
+                </p>
+
+                <h2 data-i18n="categoryTitle">
+                    Nos catégories
+                </h2>
+
+            </div>
+
+            <div class="category-grid">
+
+                <button class="category-card" data-category="all">
+                    📚
+                    <span data-i18n="categoryAll">Tous les livres</span>
+                </button>
+
+                <button class="category-card" data-category="personal">
+                    🧠
+                    <span data-i18n="categoryPersonal">
+                        Développement personnel
+                    </span>
+                </button>
+
+                <button class="category-card" data-category="business">
+                    💼
+                    <span data-i18n="categoryBusiness">
+                        Entrepreneuriat
+                    </span>
+                </button>
+
+                <button class="category-card" data-category="technology">
+                    💻
+                    <span data-i18n="categoryTechnology">
+                        Technologie
+                    </span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SHOP ================= -->
+        <section class="shop" id="shop">
+
+            <div class="section-heading">
+
+                <p class="section-subtitle" data-i18n="shopSubtitle">
+                    Notre collection
+                </p>
+
+                <h2 data-i18n="shopTitle">
+                    Livres populaires
+                </h2>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="shop-tools">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Rechercher un livre..."
+                    data-i18n-placeholder="searchPlaceholder"
+                >
+
+                <select id="categoryFilter">
+                    <option value="all" data-i18n="filterAll">
+                        Toutes les catégories
+                    </option>
+
+                    <option value="personal" data-i18n="filterPersonal">
+                        Développement personnel
+                    </option>
+
+                    <option value="business" data-i18n="filterBusiness">
+                        Entrepreneuriat
+                    </option>
+
+                    <option value="technology" data-i18n="filterTechnology">
+                        Technologie
+                    </option>
+
+                    <option value="finance" data-i18n="filterFinance">
+                        Finance
+                    </option>
+                </select>
+
+            </div>
+
+
+            <!-- Books -->
+            <div class="books-grid" id="booksGrid">
+
+                <!-- Book 1 -->
+                <article class="book-card" data-category="personal">
+
+                    <div class="book-image">
+                        <img
+                            src="images/power-small-habits.jpg"
+                            alt="The Power of Small Habits"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="personalCategory">
+                            Développement personnel
+                        </span>
+
+                        <h3>The Power of Small Habits</h3>
+
+                        <p class="author">
+                            Sarah Mitchell
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>120 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="1"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Book 2 -->
+                <article class="book-card" data-category="business">
+
+                    <div class="book-image">
+                        <img
+                            src="images/start-business.jpg"
+                            alt="Start Your Business"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="businessCategory">
+                            Entrepreneuriat
+                        </span>
+
+                        <h3>Start Your Business</h3>
+
+                        <p class="author">
+                            Daniel Carter
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>150 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="2"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Book 3 -->
+                <article class="book-card" data-category="technology">
+
+                    <div class="book-image">
+                        <img
+                            src="images/world-coding.jpg"
+                            alt="The World of Coding"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="technologyCategory">
+                            Technologie
+                        </span>
+
+                        <h3>The World of Coding</h3>
+
+                        <p class="author">
+                            Michael Anderson
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>180 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="3"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Book 4 -->
+                <article class="book-card" data-category="finance">
+
+                    <div class="book-image">
+                        <img
+                            src="images/master-money.jpg"
+                            alt="Master Your Money"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="financeCategory">
+                            Finance
+                        </span>
+
+                        <h3>Master Your Money</h3>
+
+                        <p class="author">
+                            Olivia Brown
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>140 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="4"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Book 5 -->
+                <article class="book-card" data-category="personal">
+
+                    <div class="book-image">
+                        <img
+                            src="images/art-productivity.jpg"
+                            alt="The Art of Productivity"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="personalCategory">
+                            Développement personnel
+                        </span>
+
+                        <h3>The Art of Productivity</h3>
+
+                        <p class="author">
+                            Emma Wilson
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>130 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="5"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Book 6 -->
+                <article class="book-card" data-category="business">
+
+                    <div class="book-image">
+                        <img
+                            src="images/future-leadership.jpg"
+                            alt="The Future of Leadership"
+                        >
+                    </div>
+
+                    <div class="book-info">
+
+                        <span class="book-category" data-i18n="businessCategory">
+                            Entrepreneuriat
+                        </span>
+
+                        <h3>The Future of Leadership</h3>
+
+                        <p class="author">
+                            James Williams
+                        </p>
+
+                        <div class="book-bottom">
+
+                            <strong>160 000 GNF</strong>
+
+                            <button
+                                class="add-to-cart"
+                                data-id="6"
+                                data-i18n="addToCart"
+                            >
+                                Ajouter
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+        <section class="about" id="about">
+
+            <div class="about-content">
+
+                <p class="section-subtitle" data-i18n="aboutSubtitle">
+                    À propos de nous
+                </p>
+
+                <h2 data-i18n="aboutTitle">
+                    Bienvenue dans l'univers de BookNest
+                </h2>
+
+                <p data-i18n="aboutText">
+                    BookNest est une librairie en ligne créée pour rendre
+                    la découverte et l'achat de livres simples, accessibles
+                    et agréables.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHY BOOKNEST ================= -->
+        <section class="features">
+
+            <div class="section-heading">
+
+                <p class="section-subtitle" data-i18n="whySubtitle">
+                    Pourquoi nous choisir ?
+                </p>
+
+                <h2 data-i18n="whyTitle">
+                    Une expérience simple et agréable
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+
+                    <h3 data-i18n="featureOneTitle">
+                        Collection variée
+                    </h3>
+
+                    <p data-i18n="featureOneText">
+                        Découvrez des livres dans différentes catégories.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+
+                    <h3 data-i18n="featureTwoTitle">
+                        Bilingue
+                    </h3>
+
+                    <p data-i18n="featureTwoText">
+                        Naviguez facilement en français ou en anglais.
+                    </p>
+                </div>
+
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+
+                    <h3 data-i18n="featureThreeTitle">
+                        Panier simple
+                    </h3>
+
+                    <p data-i18n="featureThreeText">
+                        Ajoutez vos livres préférés au panier facilement.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+        <section class="contact" id="contact">
+
+            <div class="section-heading">
+
+                <p class="section-subtitle" data-i18n="contactSubtitle">
+                    Contactez-nous
+                </p>
+
+                <h2 data-i18n="contactTitle">
+                    Une question ?
+                </h2>
+
+            </div>
+
+            <form id="contactForm" class="contact-form">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Votre nom"
+                    data-i18n-placeholder="namePlaceholder"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Votre adresse e-mail"
+                    data-i18n-placeholder="emailPlaceholder"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Votre message"
+                    data-i18n-placeholder="messagePlaceholder"
+                    required
+                ></textarea>
+
+                <button type="submit" data-i18n="sendMessage">
+                    Envoyer le message
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <a href="#" class="logo">
+                Book<span>Nest</span>
+            </a>
+
+            <p data-i18n="footerText">
+                Découvrez. Lisez. Grandissez.
+            </p>
+
+            <p class="copyright">
+                © 2026 BookNest. 
+                <span data-i18n="rights">
+                    Tous droits réservés.
+                </span>
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= CART MODAL ================= -->
+    <div class="cart-modal" id="cartModal">
+
+        <div class="cart-content">
+
+            <div class="cart-header">
+
+                <h2 data-i18n="cartTitle">
+                    Votre panier
+                </h2>
+
+                <button id="closeCart">
+                    ✕
+                </button>
+
+            </div>
+
+            <div id="cartItems">
+
+                <p class="empty-cart" data-i18n="emptyCart">
+                    Votre panier est vide.
+                </p>
+
+            </div>
+
+            <div class="cart-total">
+
+                <span data-i18n="total">
+                    Total :
+                </span>
+
+                <strong id="cartTotal">
+                    0 GNF
+                </strong>
+
+            </div>
+
+            <button
+                class="checkout-button"
+                id="checkoutButton"
+                data-i18n="checkout"
+            >
+                Passer la commande
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
